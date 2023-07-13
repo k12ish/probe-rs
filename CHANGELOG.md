@@ -7,23 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `dap-server`: In addition to `Elf` format, this adds support for binary formats `Bin`, `Hex`, and `Idf` (#1656).
+- cli: The dap-server, in addition to `Elf` format, now supports binary formats `Bin`, `Hex`, and `Idf` (#1656).
 - Added PAC55XX series targets (#1655)
 - Stack unwinding can now unwind beyond (optionally nested) exception handlers (#1665).
   - ARMv6-M: Report Exception / Fault description, and Unwind the registers and next frames.
   - ARMv7-M: Also decodes details about HardFault, UsageFault, BusFault, and MemManageFault.
   - ARMv7-A, Armv8-M, Armv8-A, RISC-V: Not implemented - requires architecture specific implementations.
 - Added a simple profiler to the probe-rs cli toolkit (#1628)
-
+- Added vector catch for ARMv6-M and ARMv7-M (#1592)
+  - Currently supported are HardFault and CoreReset.
+- cli: The run command now prints a stack trace on `HardFault` (#1592)
 
 ### Fixed
 
-- probe-rs-cli: fixed `--base-address` having no effect
-- probe-rs-cli: fixed `--skip` not accepting hexadecimal values
+- cli: fixed `--base-address` having no effect
+- cli: fixed `--skip` not accepting hexadecimal values
 
 ### Removed
 
-- probe-rs-cli: removed obsolete `--skip-bytes` (which had no effect), use `--skip` instead
+- cli: removed obsolete `--skip-bytes` (which had no effect), use `--skip` instead
 
 ## [0.19.0]
 
